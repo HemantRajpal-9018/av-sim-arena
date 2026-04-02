@@ -1,0 +1,43 @@
+name: roundabout
+description: >
+  Roundabout navigation with yielding to circulating traffic.
+  The ego vehicle enters and exits a single-lane roundabout.
+
+weather: night
+traffic_density: medium
+speed_limit: 8.3  # 30 km/h
+
+ego_start:
+  x: 0.0
+  y: -20.0
+  heading: 1.5708
+  speed: 8.0
+
+ego_goal:
+  x: 20.0
+  y: 0.0
+  heading: 0.0
+
+reference_path:
+  - {x: 0.0, y: -20.0, heading: 1.5708, speed_limit: 8.3}
+  - {x: 0.0, y: -12.0, heading: 1.5708, speed_limit: 6.0}
+  - {x: 3.0, y: -8.0, heading: 0.8, speed_limit: 5.0}
+  - {x: 8.0, y: -5.0, heading: 0.3, speed_limit: 5.0}
+  - {x: 12.0, y: -3.0, heading: 0.1, speed_limit: 5.0}
+  - {x: 16.0, y: -1.0, heading: 0.0, speed_limit: 6.0}
+  - {x: 20.0, y: 0.0, heading: 0.0, speed_limit: 8.3}
+
+npc_vehicles:
+  - {id: npc_0, x: 10.0, y: -10.0, heading: 0.5, speed: 6.0, behavior: follow}
+  - {id: npc_1, x: -5.0, y: 10.0, heading: -1.0, speed: 7.0, behavior: yield}
+  - {id: npc_2, x: 15.0, y: 5.0, heading: -0.5, speed: 5.0, behavior: follow}
+
+edge_cases:
+  - cut_in
+
+pedestrian_behaviors: []
+
+duration: 25.0
+dt: 0.1
+road_width: 4.0
+num_lanes: 1

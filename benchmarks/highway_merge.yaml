@@ -1,0 +1,45 @@
+name: highway_merge
+description: >
+  Highway merge scenario with merging traffic. The ego vehicle must merge
+  from an on-ramp into flowing highway traffic while maintaining safety.
+
+weather: clear
+traffic_density: high
+speed_limit: 27.8  # 100 km/h
+
+ego_start:
+  x: 0.0
+  y: -3.7
+  heading: 0.0
+  speed: 20.0
+
+ego_goal:
+  x: 300.0
+  y: 0.0
+  heading: 0.0
+
+reference_path:
+  - {x: 0.0, y: -3.7, heading: 0.0, speed_limit: 25.0}
+  - {x: 50.0, y: -3.7, heading: 0.0, speed_limit: 25.0}
+  - {x: 100.0, y: -2.0, heading: 0.15, speed_limit: 27.8}
+  - {x: 150.0, y: 0.0, heading: 0.0, speed_limit: 27.8}
+  - {x: 200.0, y: 0.0, heading: 0.0, speed_limit: 27.8}
+  - {x: 250.0, y: 0.0, heading: 0.0, speed_limit: 27.8}
+  - {x: 300.0, y: 0.0, heading: 0.0, speed_limit: 27.8}
+
+npc_vehicles:
+  - {id: npc_0, x: 80.0, y: 0.0, heading: 0.0, speed: 25.0, behavior: follow}
+  - {id: npc_1, x: 120.0, y: 0.0, heading: 0.0, speed: 26.0, behavior: follow}
+  - {id: npc_2, x: 160.0, y: 0.0, heading: 0.0, speed: 24.0, behavior: yield}
+  - {id: npc_3, x: 100.0, y: 3.7, heading: 0.0, speed: 28.0, behavior: aggressive}
+  - {id: npc_4, x: 140.0, y: 3.7, heading: 0.0, speed: 27.0, behavior: follow}
+
+edge_cases:
+  - cut_in
+
+pedestrian_behaviors: []
+
+duration: 30.0
+dt: 0.1
+road_width: 3.7
+num_lanes: 3

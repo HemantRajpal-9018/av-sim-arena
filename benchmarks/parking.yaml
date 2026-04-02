@@ -1,0 +1,44 @@
+name: parking
+description: >
+  Parking lot scenario requiring low-speed maneuvering into a tight spot.
+  The ego vehicle must navigate between parked cars and find a spot.
+
+weather: clear
+traffic_density: low
+speed_limit: 5.6  # 20 km/h
+
+ego_start:
+  x: 0.0
+  y: 0.0
+  heading: 0.0
+  speed: 3.0
+
+ego_goal:
+  x: 30.0
+  y: -5.0
+  heading: 1.5708
+
+reference_path:
+  - {x: 0.0, y: 0.0, heading: 0.0, speed_limit: 5.0}
+  - {x: 10.0, y: 0.0, heading: 0.0, speed_limit: 5.0}
+  - {x: 20.0, y: 0.0, heading: 0.0, speed_limit: 3.0}
+  - {x: 25.0, y: -1.0, heading: -0.3, speed_limit: 2.0}
+  - {x: 28.0, y: -3.0, heading: -0.8, speed_limit: 1.5}
+  - {x: 30.0, y: -5.0, heading: -1.5708, speed_limit: 1.0}
+
+npc_vehicles:
+  - {id: parked_0, x: 25.0, y: -5.0, heading: 1.5708, speed: 0.0, behavior: follow}
+  - {id: parked_1, x: 35.0, y: -5.0, heading: 1.5708, speed: 0.0, behavior: follow}
+
+npc_pedestrians:
+  - {id: ped_0, x: 15.0, y: -3.0, heading: 0.0, speed: 1.2, behavior: distracted}
+
+edge_cases: []
+
+pedestrian_behaviors:
+  - distracted
+
+duration: 20.0
+dt: 0.1
+road_width: 5.0
+num_lanes: 1

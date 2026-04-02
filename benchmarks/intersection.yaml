@@ -1,0 +1,51 @@
+name: intersection
+description: >
+  Urban intersection scenario with cross-traffic and pedestrians.
+  The ego vehicle must navigate a signalized intersection with
+  turning traffic and jaywalking pedestrians.
+
+weather: rain
+traffic_density: medium
+speed_limit: 13.9  # 50 km/h
+
+ego_start:
+  x: -50.0
+  y: 0.0
+  heading: 0.0
+  speed: 10.0
+
+ego_goal:
+  x: 50.0
+  y: 0.0
+  heading: 0.0
+
+reference_path:
+  - {x: -50.0, y: 0.0, heading: 0.0, speed_limit: 13.9}
+  - {x: -30.0, y: 0.0, heading: 0.0, speed_limit: 13.9}
+  - {x: -10.0, y: 0.0, heading: 0.0, speed_limit: 8.3}
+  - {x: 0.0, y: 0.0, heading: 0.0, speed_limit: 8.3}
+  - {x: 10.0, y: 0.0, heading: 0.0, speed_limit: 8.3}
+  - {x: 30.0, y: 0.0, heading: 0.0, speed_limit: 13.9}
+  - {x: 50.0, y: 0.0, heading: 0.0, speed_limit: 13.9}
+
+npc_vehicles:
+  - {id: npc_0, x: 0.0, y: -50.0, heading: 1.5708, speed: 12.0, behavior: yield}
+  - {id: npc_1, x: 0.0, y: 50.0, heading: -1.5708, speed: 11.0, behavior: follow}
+  - {id: npc_2, x: 30.0, y: 3.7, heading: 3.1416, speed: 10.0, behavior: lane_change}
+
+npc_pedestrians:
+  - {id: ped_0, x: -5.0, y: -8.0, heading: 1.5708, speed: 1.4, behavior: normal}
+  - {id: ped_1, x: 5.0, y: 10.0, heading: -1.5708, speed: 2.0, behavior: jaywalking}
+
+edge_cases:
+  - jaywalker
+  - sudden_brake
+
+pedestrian_behaviors:
+  - normal
+  - jaywalking
+
+duration: 25.0
+dt: 0.1
+road_width: 3.7
+num_lanes: 2
